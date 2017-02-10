@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Apache DocumentRoot</title>
+  </head>
+  <body>
+    <h1>Apache Webserver from Philippe Computer</h1>
+	<a href="treasure.html">Treasure game</a><br/>
+	<a href="form.html">Form</a></br>
+	<a href="Dynamisk.html">Dynamisk websidan</a></br>
+	<a href="demosqlite.php">Demo SQLITE with PHP</a></br>
+	<a href="demo.php">Demo PHP</a></br>
+</body>
+</html>
+

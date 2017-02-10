@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+#End{
+    display:none;
+}
+    </style>
+    <script>
+
+        var distance;
+        var GameSize = 100;
+
+        function Distance(A,B){
+            var tmp;
+            tmp = Math.pow((A.x - B.x),2) + Math.pow((A.y - B.y),2);
+            distance = Math.sqrt(tmp);
+        }
+        function showDistance(A,B){
+            document.getElementById("Distance").innerHTML = distance.toFixed(3);
+
+        }
+        function MovePlayer(dir){
+            switch(dir){
+                case 'North':
+                    A.y += 1;
+                    break;
+                case 'South':
+                    A.y -= 1;
+                    break;
+                case 'East':
+                    A.x += 1;
+                    break;
+                case 'West':
+                    A.x -= 1;
+                    break;
+
+            }
+            Distance(A,B);
+            showDistance(A,B);
+
+            if(distance < 0.1){
+                EndGame();
+            }
+
+        }
+
+        function NewGame(){
+            A = {'x': Math.floor(Math.random()*(GameSize + 1)),'y': Math.floor(Math.random()*(GameSize + 1))};
+            B = {'x': Math.floor(Math.random()*(GameSize + 1)),'y': Math.floor(Math.random()*(GameSize + 1))};
+
+
+
+        }
+
+        function EndGame(){
+            document.getElementById("End").style.display='inline';
+        }
+
+        function Test(){
+            NewGame();
+            Distance(A,B);
+            showDistance(A,B);
+
+        }
+    </script>
+
+</head>
+<body>
+
+<input type="button" onclick="Test()" value="Test"/>
+</br>
+<input type="button" onclick="MovePlayer('North')" value="North"/>
+<input type="button" onclick="MovePlayer('South')" value="South"/>
+<input type="button" onclick="MovePlayer('East')" value="East"/>
+<input type="button" onclick="MovePlayer('West')" value="West"/>
+
+
+
+
+<p>The distance to the treasure is <spam id="Distance">0</spam>m</p>
+
+
+<p id="End">Yeah! You find the treasure!</p>
+
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamisk websidan</title>
+
+    <script>
+        function moms(price){return price*1.25}
+        function addRow(model,price){
+            document.writeln("<tr><td>"+model+"</td><td>"+price+"</td><td>"+ moms(price) + "</td></tr>")
+        }
+        function maketable(){
+            document.writeln("<h1>A dynamic table</h1>")
+            document.writeln("<table border='2'><tr><th>Model</th><th>Price</th><th>Moms</th></tr>")
+            addRow("Volvo",300000)
+            addRow("Tesla",100000)
+            addRow("Renault",85000)
+			addRow("Ferrari",1200000)
+			document.writeln("</table>")
+
+        }
+    </script>
+</head>
+<body onload="maketable()">
+
+</body>
+</html>

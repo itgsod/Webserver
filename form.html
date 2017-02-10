@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>	
+	<script>
+	function InputCharacterLengthCheck() {
+		if(MaxChars <= 0) { return; }
+		var currentstring = new String();
+		eval('currentstring = ' + textfield);
+		var currentlength = currentstring.length;
+		eval('currentstring = CharLengthCheck(' + textfield + ',' + MaxChars + ')');
+		if(CharactersLeftFieldName.length > 0) {
+			var left = 0;
+			eval('left = ' + MaxChars + ' - ' + textfield + '.length');
+			if(left < 0) { left = 0; }
+			eval('document.' + FormName + '.' + CharactersLeftFieldName + '.value = ' + left);
+			if(currentstring.length < currentlength) { 
+				eval(textfield + ' = currentstring.substring(0)');
+			}
+		}
+		if(CharactersTypedFieldName.length > 0) {
+			eval('document.' + FormName + '.' + CharactersTypedFieldName + '.value = ' + textfield + '.length');
+			if(currentstring.length < currentlength) { 
+				eval(textfield + ' = currentstring.substring(0)'); 
+			}
+		}
+	}
+	function InputLengthCheck() {
+		InputCharacterLengthCheck();
+		InputWordLengthCheck();
+	} 
+	</script>
+	
+</head>
+
+<body>
+	
+
+<form action="demo_form.asp" method="post">
+  <input type="text" name="fname" required>
+  <input type="submit" value="Submit">
+</form>
+
+</body>
+
+</html>
